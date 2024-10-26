@@ -1,0 +1,48 @@
+
+F:\GitHubProjects\just on  benchmark [!]
+psh ❯ just benchmark
+fastfetch
+/////////////////  /////////////////    OS: Windows 11 (Home) x86_64
+/////////////////  /////////////////    Kernel: WIN32_NT 10.0.22631.4391 (23H2)
+/////////////////  /////////////////    Uptime: 2 days, 17 hours, 39 mins
+/////////////////  /////////////////    Packages: 48 (scoop), 4 (choco)
+/////////////////  /////////////////    Shell: PowerShell 7.4.5
+                                        DE: Fluent
+/////////////////  /////////////////    WM: Desktop Window Manager
+/////////////////  /////////////////    WM Theme: ADMTheme - Blue (System: Light, Apps: Light)
+/////////////////  /////////////////    Terminal: Windows Terminal 1.21.2911.0
+/////////////////  /////////////////    Terminal Font: JetBrainsMono Nerd Font (15pt)
+/////////////////  /////////////////    CPU: AMD Ryzen 3 3200G with Radeon Vega Graphics (4) @ 4.00 GHz
+/////////////////  /////////////////    GPU: AMD Radeon(TM) Vega 8 Graphics (1.98 GiB) [Discrete]
+                                        Memory: 19.53 GiB / 45.91 GiB (43%)
+                                        Swap: 55.85 MiB / 4.25 GiB (1%)
+                                        Disk (C:\): 285.59 GiB / 329.57 GiB (87%) - NTFS
+                                        Disk (F:\): 35.05 GiB / 49.94 GiB (70%) - ReFS
+                                        Locale: en-US
+
+
+
+hyperfine --prepare 'cargo clean' 'cargo clean'
+Benchmark 1: cargo clean
+  Time (mean ± σ):     145.4 ms ±   8.1 ms    [User: 43.1 ms, System: 37.6 ms]
+  Range (min … max):   136.3 ms … 164.9 ms    10 runs
+
+hyperfine --prepare 'cargo clean' 'cargo fetch'
+Benchmark 1: cargo fetch
+  Time (mean ± σ):     396.1 ms ±  15.9 ms    [User: 107.2 ms, System: 80.9 ms]
+  Range (min … max):   376.2 ms … 416.9 ms    10 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo check'
+Benchmark 1: cargo check
+  Time (mean ± σ):     34.805 s ±  3.199 s    [User: 74.562 s, System: 14.244 s]
+  Range (min … max):   32.436 s … 38.444 s    3 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo build'
+Benchmark 1: cargo build
+  Time (mean ± σ):     57.525 s ±  2.024 s    [User: 139.755 s, System: 20.806 s]
+  Range (min … max):   55.486 s … 59.535 s    3 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo build --release'
+Benchmark 1: cargo build --release
+  Time (mean ± σ):     151.212 s ±  4.371 s    [User: 188.576 s, System: 24.230 s]
+  Range (min … max):   147.255 s … 155.904 s    3 runs
