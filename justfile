@@ -8,9 +8,9 @@ benchmark:
   fastfetch
   hyperfine --prepare 'cargo clean' 'cargo clean'
   hyperfine --prepare 'cargo clean' 'cargo fetch'
-  hyperfine --prepare 'cargo clean' 'cargo check'
-  hyperfine --prepare 'cargo clean' 'cargo build'
-  hyperfine --prepare 'cargo clean' 'cargo build --release'
+  hyperfine --prepare 'cargo clean' --runs 3 'cargo check'
+  hyperfine --prepare 'cargo clean' --runs 3 'cargo build'
+  hyperfine --prepare 'cargo clean' --runs 3 'cargo build --release'
 
 
 
