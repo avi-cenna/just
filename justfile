@@ -6,6 +6,8 @@ set windows-shell := ['pwsh', '-c']
 
 benchmark:
   fastfetch
+  hyperfine 'fd test'
+  hyperfine 'rg --ignore-case test'
   hyperfine --prepare 'cargo clean' 'cargo clean'
   hyperfine --prepare 'cargo clean' 'cargo fetch'
   hyperfine --prepare 'cargo clean' --runs 3 'cargo check'
