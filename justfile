@@ -2,6 +2,21 @@
 # ^ A shebang isn't required, but allows a justfile to be executed
 #   like a script, with `./justfile test`, for example.
 
+set windows-shell := ['pwsh', '-c']
+
+benchmark:
+  fastfetch
+  hyperfine --prepare 'cargo clean' 'cargo clean'
+  hyperfine --prepare 'cargo clean' 'cargo fetch'
+  hyperfine --prepare 'cargo clean' 'cargo check'
+  hyperfine --prepare 'cargo clean' 'cargo build'
+  hyperfine --prepare 'cargo clean' 'cargo build --release'
+
+
+
+
+
+
 alias t := test
 
 log := "warn"
