@@ -46,3 +46,61 @@ hyperfine --prepare 'cargo clean' --runs 3 'cargo build --release'
 Benchmark 1: cargo build --release
   Time (mean ± σ):     151.212 s ±  4.371 s    [User: 188.576 s, System: 24.230 s]
   Range (min … max):   147.255 s … 155.904 s    3 runs
+
+
+
+
+
+n@Win-Desktop-Amd:~/GitHub/just$ just benchmark
+fastfetch
+                             ....              n@Win-Desktop-Amd
+              .',:clooo:  .:looooo:.           -----------------
+           .;looooooooc  .oooooooooo'          OS: Ubuntu noble 24.04 x86_64
+        .;looooool:,''.  :ooooooooooc          Host: Windows Subsystem for Linux - Ubuntu
+       ;looool;.         'oooooooooo,          Kernel: Linux 5.15.146.1-microsoft-standard-WSL2
+      ;clool'             .cooooooc.  ,,       Uptime: 3 hours, 44 mins
+         ...                ......  .:oo,      Packages: 581 (dpkg), 10 (brew)
+  .;clol:,.                        .loooo'     Shell: just
+ :ooooooooo,                        'ooool     Display (XWAYLAND1): 1920x1080 @ 60 Hz
+'ooooooooooo.                        loooo.    DE: WSLg
+'ooooooooool                         coooo.    WM: Weston WM (X11)
+ ,loooooooc.                        .loooo.    Theme: Yaru [GTK3]
+   .,;;;'.                          ;ooooc     Icons: Yaru [GTK3]
+       ...                         ,ooool.     Cursor: Adwaita
+    .cooooc.              ..',,'.  .cooo.      Terminal: Windows Terminal
+      ;ooooo:.           ;oooooooc.  :l.       CPU: AMD Ryzen 3 3200G with Radeon Vega Graphics (4) @ 3.60 GHz
+       .coooooc,..      coooooooooo.           GPU: Microsoft Basic Render Driver
+         .:ooooooolc:. .ooooooooooo'           Memory: 749.02 MiB / 22.45 GiB (3%)
+           .':loooooo;  ,oooooooooc            Swap: 0 B / 6.00 GiB (0%)
+               ..';::c'  .;loooo:'             Disk (/): 4.68 GiB / 1006.85 GiB (0%) - ext4
+                                               Disk (/mnt/c): 288.39 GiB / 329.57 GiB (88%) - 9p
+                                               Disk (/mnt/f): 35.02 GiB / 49.94 GiB (70%) - 9p
+                                               Local IP (eth0): 172.31.194.98/20
+                                               Locale: C.UTF-8
+
+
+
+hyperfine --prepare 'cargo clean' 'cargo clean'
+Benchmark 1: cargo clean
+  Time (mean ± σ):      55.1 ms ±   2.7 ms    [User: 38.0 ms, System: 16.7 ms]
+  Range (min … max):    51.0 ms …  64.6 ms    26 runs
+
+hyperfine --prepare 'cargo clean' 'cargo fetch'
+Benchmark 1: cargo fetch
+  Time (mean ± σ):     133.8 ms ±   9.7 ms    [User: 102.6 ms, System: 28.1 ms]
+  Range (min … max):   126.2 ms … 162.7 ms    15 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo check'
+Benchmark 1: cargo check
+  Time (mean ± σ):     20.619 s ±  1.073 s    [User: 57.888 s, System: 7.437 s]
+  Range (min … max):   19.800 s … 21.834 s    3 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo build'
+Benchmark 1: cargo build
+  Time (mean ± σ):     43.159 s ±  4.695 s    [User: 121.383 s, System: 14.879 s]
+  Range (min … max):   38.746 s … 48.093 s    3 runs
+
+hyperfine --prepare 'cargo clean' --runs 3 'cargo build --release'
+Benchmark 1: cargo build --release
+  Time (mean ± σ):     86.889 s ± 10.911 s    [User: 164.848 s, System: 10.636 s]
+  Range (min … max):   76.927 s … 98.549 s    3 runs
